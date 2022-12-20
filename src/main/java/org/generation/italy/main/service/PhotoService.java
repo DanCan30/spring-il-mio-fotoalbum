@@ -29,4 +29,9 @@ public class PhotoService {
 		
 		return photoRepo.findById(id);
 	}
+	
+	public  List<Photo> findByNameOrTag(String query) {
+		
+		return photoRepo.findByTitleContainingOrTagContainingIgnoreCase(query, query);
+	}
 }

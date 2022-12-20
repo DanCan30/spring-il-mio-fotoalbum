@@ -13,6 +13,15 @@
 	<br>
 	<br>
 	<a href="/admin/create">Add a new photo</a>
+	<br>
+	<br>
+	<form>
+		
+		<label>Search photo</label>
+		<input type="text" name="query" th:value="${query}">
+		<input type="submit" value="SEARCH">
+	</form>
+	
     <ul>
 		<li 
 			th:each="photo : ${photos}"
