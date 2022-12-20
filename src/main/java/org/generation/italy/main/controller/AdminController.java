@@ -2,8 +2,11 @@ package org.generation.italy.main.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+import org.generation.italy.main.pojo.Category;
 import org.generation.italy.main.pojo.Photo;
+import org.generation.italy.main.service.CategoryService;
 import org.generation.italy.main.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,8 @@ public class AdminController {
 
 	@Autowired
 	private PhotoService photoService;
+	@Autowired
+	private CategoryService categoryService;
 	
 	@GetMapping
 	public String getPhotoIndex(Model model) {
@@ -35,11 +40,30 @@ public class AdminController {
 		return "admin/photo-index";
 	}
 	
+	@GetMapping("/photo/{id}")
+	public String getPhoto(@PathVariable("id") int id, Model model) {
+		Optional<Photo> photoOpt = photoService.findById(id);
+		
+		if(photoOpt.isEmpty())
+			return "404";
+		
+		Photo photo = photoOpt.get(); 
+		Set<Category> categories = photo.getCategories();
+		
+		model.addAttribute("photo", photo);
+		model.addAttribute("categories", categories);
+		
+		return "admin/photo-show";
+	}
+	
 	@GetMapping("/create")
 	public String createPhoto(Model model) {
 		Photo newPhoto = new Photo();
 		
+		List<Category> categories = categoryService.findAll();
+		
 		model.addAttribute("photo", newPhoto);
+		model.addAttribute("categories", categories);
 		
 		return "admin/photo-create";
 	}
@@ -60,13 +84,17 @@ public class AdminController {
 	
 	@GetMapping("/edit/{id}")
 	public String editPhoto(@PathVariable("id") int id, Model model) {
+		
 		Optional<Photo> photoOpt = photoService.findById(id);
+		List<Category> categories = categoryService.findAll();
 		
 		if(photoOpt.isEmpty())
 			return "404";
 		
 		Photo photo = photoOpt.get(); 
-		
+
+
+		model.addAttribute("categories", categories);
 		model.addAttribute("photo", photo);
 		
 		return "admin/photo-edit";

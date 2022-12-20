@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Photoalbum</title>
+</head>
+<body th:object="${photo}">
+	<h2 th:text="*{title}"></h2>
+	
+	<h5 th:text="|#*{tag}|"></h5>
+	
+	<span 
+		th:each="category : ${categories}"
+		th:object="${category}"
+		th:text="| *{name.toUpperCase()} |"></span>
+		
+	<br>
+	<br>
+	
+	<img th:src="*{imageUrl}">
+	
+	<p th:text="*{description}"></p>
+
+	<a th:href="@{/admin/edit/{id} (id = *{id})}">Edit</a>
+	<a th:href="@{/admin/delete/{id} (id = *{id})}">Delete</a>
+	
+</body>
+</html>

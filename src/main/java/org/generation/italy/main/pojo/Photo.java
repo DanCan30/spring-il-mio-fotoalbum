@@ -1,5 +1,9 @@
 package org.generation.italy.main.pojo;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.hibernate.validator.constraints.URL;
 
 import jakarta.annotation.Nullable;
@@ -9,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -49,6 +54,10 @@ public class Photo {
 	@Column(name = "is_visible", nullable = false, columnDefinition = "boolean default true")
 	private boolean isVisible;
 	
+	@Nullable
+	@ManyToMany
+	private Set<Category> categories;
+	
 	
 	public Photo() {}
 	
@@ -58,6 +67,11 @@ public class Photo {
 		setImageUrl(imageUrl);
 		setTag(tag);
 		setIsVisible(isVisible);
+	}
+	
+	public Photo(String title, String description, String imageUrl, String tag, boolean isVisible, Category...categories) {
+		this(title, description, imageUrl, tag, isVisible);
+		setCategories(new HashSet<>(Arrays.asList(categories)));
 	}
 	
 	public void setId(Integer id) {
@@ -100,6 +114,13 @@ public class Photo {
 	}
 	public boolean getIsVisible() {
 		return this.isVisible;
+	}
+	
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
+	}
+	public Set<Category> getCategories() {
+		return this.categories;
 	}
 	
 	@Override

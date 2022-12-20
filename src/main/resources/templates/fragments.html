@@ -19,12 +19,37 @@
 		<label for="tag">TAG</label>
 		<input type="text" name="tag" th:field="*{tag}"><br>
 		
+		<h4>Categories</h4>
+		
+		<div
+			th:each="category : ${categories}"
+			th:object="${category}">
+			
+			<label for="category" th:text="*{name}"></label>
+			<input type="checkbox" name="category" th:value="*{id}" th:field="${photo.categories}">
+			
+		</div>
+		
+		
 		<h4>Visible</h4>
 		<input type="radio" id="visible-true" name="is-visible" value="1" th:field="*{isVisible}">
 		<label for="visible-true">YES</label>
 		<input type="radio" id="visible-false" name="is-visible" value="0" th:field="*{isVisible}">
 		<label for="visible-false">NO</label>
 		<br>
+		
+		<button type="submit" th:text="${submitType}"></button>
+	</form>
+	
+	<form
+		th:fragment="category-form(action, method, submitType)"
+		th:action="${action}"
+		th:method="${method}"
+		>
+		<input type="number" name="id" th:field="*{id}" style="display: none" th:value="*{id}">
+		<label for="name">Name</label>
+		<input type="text" name="name" th:field="*{name}"><br>
+
 		
 		<button type="submit" th:text="${submitType}"></button>
 	</form>
