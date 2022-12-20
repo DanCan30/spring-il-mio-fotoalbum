@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Photoalbum</title>
+</head>
+<body th:object="${photo}">
+	<h2>Create a new photo</h2>
+	<a href="/admin">Go back to index</a>
+	
+	
+	<div th:insert="fragments :: error()"></div>
+	
+	<div th:insert="fragments :: photo-form('/admin/edit/{id} (id = *{id})', 'POST', 'UPDATE')"
+</body>
+</html>

@@ -1,6 +1,7 @@
 package org.generation.italy.main.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.generation.italy.main.pojo.Photo;
 import org.generation.italy.main.repo.PhotoRepo;
@@ -22,5 +23,10 @@ public class PhotoService {
 	}
 	public void delete(Photo photo) {
 		photoRepo.delete(photo);
+	}
+	
+	public Optional<Photo> findById(int id) {
+		
+		return photoRepo.findById(id);
 	}
 }

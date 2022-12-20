@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<form
+		th:fragment="photo-form(action, method, submitType)"
+		th:action="${action}"
+		th:method="${method}"
+		>
+		<input type="number" name="id" th:field="*{id}" hidden>
+		<label for="title">title</label>
+		<input type="text" name="title" th:field="*{title}"><br>
+		
+		<label for="description">Description</label>
+		<textarea name="description" style="resize: none"  th:field="*{description}"></textarea><br>
+		
+		<label for="image-url">Image URL</label>
+		<input type="text" name="image-url" th:field="*{imageUrl}"><br>
+		
+		<label for="tag">TAG</label>
+		<input type="text" name="tag" th:field="*{tag}"><br>
+		
+		<h4>Visible</h4>
+		<input type="radio" id="visible-true" name="is-visible" value="1" th:field="*{isVisible}">
+		<label for="visible-true">YES</label>
+		<input type="radio" id="visible-false" name="is-visible" value="0" th:field="*{isVisible}">
+		<label for="visible-false">NO</label>
+		<br>
+		
+		<button type="submit" th:text="${submitType}"></button>
+	</form>
+	
+	<div
+		th:fragment="error()"
+		>
+		     <h3 th:if="${errors}">Errors: </h3>
+    
+    <ul>
+		<li
+    		th:each="error : ${errors}"
+    		th:object="${error}"
+    		th:text="|*{defaultMessage}|"
+    	>
+    	</li>
+	</ul>
+	</div>
+</body>
+</html>
