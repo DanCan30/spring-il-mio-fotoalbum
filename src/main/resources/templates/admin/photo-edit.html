@@ -8,11 +8,11 @@
 </head>
 <body th:object="${photo}">
 	<h2>Edit a photo</h2>
-	<a href="/admin">Go back to index</a>
+	<a href="/">Go back to index</a>
 	
 	
 	<div th:insert="fragments :: error()"></div>
 	
-	<div th:insert="fragments :: photo-form('/admin/edit/{id} (id = *{id})', 'POST', 'UPDATE')"
+	<div th:insert="fragments :: photo-form('/edit/{id} (id = *{id})', 'POST', 'UPDATE')"
 </body>
 </html>

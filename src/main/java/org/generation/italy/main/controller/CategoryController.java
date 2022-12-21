@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/admin/categories")
+@RequestMapping("/categories")
 public class CategoryController {
 	
 	@Autowired
@@ -56,7 +56,7 @@ public class CategoryController {
 		
 		categoryService.save(category);
 		
-		return "redirect:/admin/categories";
+		return "redirect:/categories";
 	}
 	
 	@GetMapping("/edit/{id}")
@@ -85,7 +85,7 @@ public class CategoryController {
 		
 		categoryService.save(category);
 		
-		return "redirect:/admin/categories";
+		return "redirect:/categories";
 	}
 	
 	@GetMapping("/delete/{id}")
@@ -106,7 +106,7 @@ public class CategoryController {
 		
 		categoryService.delete(category);
 		
-		return "redirect:/admin/categories";
+		return "redirect:/categories";
 	}
 
 }

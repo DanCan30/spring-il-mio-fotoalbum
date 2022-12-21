@@ -1,40 +1,28 @@
 package org.generation.italy.main.pojo;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "role")
+public class Role {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotBlank(message = "The name of teh category can't be empty")
-	@NotNull(message = "The name of teh category can't be empty")
-	@Column
+	@NotNull
+	@Column(unique = true)
 	private String name;
 	
-
-	@JsonIgnore
-	@ManyToMany(mappedBy = "categories")
-	private List<Photo> photos;
+	public Role() {}
 	
-	public Category() {};
-	
-	public Category(String name) {
+	public Role(String name) {
 		setName(name);
 	}
 	
@@ -52,32 +40,24 @@ public class Category {
 		return this.name;
 	}
 	
-	public void setPhotos(List<Photo> photos) {
-		this.photos = photos;
-	}
-	public List<Photo> getPhotos() {
-		return this.photos;
-	}
 	
 	@Override
 	public int hashCode() {
-		if(this.id != null)
-			return getId();
+		
+		if (this.id != null) return getId();
 		
 		return 0;
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
+		if(!(obj instanceof Role)) return false;
 		
-		if (!(obj instanceof Category)) return false;
 		return obj.hashCode() == hashCode();
 	}
 	
-	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "(" + getId() + ") - " + getName();
+		return getId() + " - " + getName();
 	}
 }

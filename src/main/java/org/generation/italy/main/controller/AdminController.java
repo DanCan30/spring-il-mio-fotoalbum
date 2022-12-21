@@ -23,7 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/")
 public class AdminController {
 
 	@Autowired
@@ -80,7 +80,7 @@ public class AdminController {
 		
 		photoService.save(photo);
 		
-		return "redirect:/admin";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/edit/{id}")
@@ -112,7 +112,7 @@ public class AdminController {
 		
 		photoService.save(photo);
 		
-		return "redirect:/admin";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/delete/{id}")
@@ -127,6 +127,6 @@ public class AdminController {
 		
 		photoService.delete(photo);
 		
-		return "redirect:/admin";
+		return "redirect:/";
 	}
 }

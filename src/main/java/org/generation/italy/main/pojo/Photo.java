@@ -2,11 +2,15 @@ package org.generation.italy.main.pojo;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.validator.constraints.URL;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.annotation.Nullable;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +18,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -36,6 +41,7 @@ public class Photo {
 	@Lob
 	@Column(name = "description")
 	@Nullable
+	@Size(max = 255, message = "The description is too long")
 	private String description;
 	
 	@Lob
@@ -57,6 +63,11 @@ public class Photo {
 	@Nullable
 	@ManyToMany
 	private Set<Category> categories;
+	
+	@Nullable
+	@OneToMany(mappedBy = "photo", cascade = CascadeType.REMOVE)
+	@JsonIgnore
+	private List<Comment> comments;
 	
 	
 	public Photo() {}
@@ -121,6 +132,13 @@ public class Photo {
 	}
 	public Set<Category> getCategories() {
 		return this.categories;
+	}
+	
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	public List<Comment> getComments() {
+		return this.comments;
 	}
 	
 	@Override

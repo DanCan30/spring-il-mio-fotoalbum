@@ -8,11 +8,11 @@
 </head>
 <body>
 	<h2>My photoalbum</h2>
-	<a href="/admin/categories">Go to categories</a>
+	<a href="/categories">Go to categories</a>
 	<br>
 	<br>
 	<br>
-	<a href="/admin/create">Add a new photo</a>
+	<a href="/create">Add a new photo</a>
 	<br>
 	<br>
 	<form>
@@ -28,9 +28,9 @@
 			th:object="${photo}"
 			>
 			
-			<a th:href="@{/admin/photo/{id} (id = *{id})}">[[*{title}]]</a>
-			<a th:href="@{/admin/edit/{id} (id = *{id})}">Edit</a>
-			<a th:href="@{/admin/delete/{id} (id = *{id})}">Delete</a>
+			<a th:href="@{/photo/{id} (id = *{id})}">[[*{title}]]</a>
+			<a th:href="@{/edit/{id} (id = *{id})}">Edit</a>
+			<a th:href="@{/delete/{id} (id = *{id})}">Delete</a>
 			
 		</li>
 	</ul>

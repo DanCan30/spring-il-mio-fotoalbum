@@ -8,11 +8,11 @@
 </head>
 <body th:object="${category}">
 	<h2>Create a new category</h2>
-	<a href="/admin/categories">Go back to index</a>
+	<a href="/categories">Go back to index</a>
 	
 	
 	<div th:insert="fragments :: error()"></div>
 	
-	<div th:insert="fragments :: category-form('/admin/categories/create', 'POST', 'CREATE')"
+	<div th:insert="fragments :: category-form('/categories/create', 'POST', 'CREATE')"
 </body>
 </html>
