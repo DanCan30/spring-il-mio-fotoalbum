@@ -5,34 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Photoalbum</title>
+	<link rel="stylesheet" href="index.css">
 </head>
 <body>
 	<h2>My photoalbum</h2>
-	<a href="/categories">Go to categories</a>
-	<br>
-	<br>
-	<br>
-	<a href="/create">Add a new photo</a>
-	<br>
-	<br>
+	<div class="navigation-button">
+		<a href="/categories">Go to categories</a>
+		<a href="/create">Add a new photo</a>
+	</div>
+
 	<form>
-		
 		<label>Search photo</label>
 		<input type="text" name="query" th:value="${query}">
 		<input type="submit" value="SEARCH">
 	</form>
-	
-    <ul>
-		<li 
+	<div class="container">
+		<ul>
+			<li 
 			th:each="photo : ${photos}"
 			th:object="${photo}"
-			>
-			
-			<a th:href="@{/photo/{id} (id = *{id})}">[[*{title}]]</a>
-			<a th:href="@{/edit/{id} (id = *{id})}">Edit</a>
-			<a th:href="@{/delete/{id} (id = *{id})}">Delete</a>
-			
-		</li>
-	</ul>
+			>	<span>
+					[[*{id}]] -
+					<a th:href="@{/photo/{id} (id = *{id})}" class="show-link">[[*{title}]]</a>
+				</span>
+				<span>
+					<a th:href="@{/edit/{id} (id = *{id})}" class="edit-link">Edit</a>
+					<a th:href="@{/delete/{id} (id = *{id})}" class="delete-link">Delete</a>
+				</span>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>

@@ -5,24 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Categories</title>
+	<link rel="stylesheet" href="index.css">
 </head>
 <body>
 	<h2>My photoalbum</h2>
-	<a href="/categories/create">Add a new category</a>
-	<br>
-	<br>
-	<br>
-	<a href="/">Back to photos</a>
-    <ul>
-		<li 
+	<div class="navigation-button">
+		<a href="/categories/create">Add a new category</a>
+		<a href="/">Back to photos</a>
+	</div>
+
+	<div class="container">
+
+		<ul>
+			<li 
 			th:each="category : ${categories}"
 			th:object="${category}"
 			>
-			[[*{name}]]
-			<a th:href="@{/categories/edit/{id} (id = *{id})}">Edit</a>
-			<a th:href="@{/categories/delete/{id} (id = *{id})}">Delete</a>
+			<span>
+				[[*{id}]] - [[*{name}]]
+			</span>
+			<span>
+				<a th:href="@{/categories/edit/{id} (id = *{id})}" class="edit-link">Edit</a>
+				<a th:href="@{/categories/delete/{id} (id = *{id})}" class="delete-link">Delete</a>	
+			</span>
 			
-		</li>
-	</ul>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package org.generation.italy.main.api.controller;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.generation.italy.main.pojo.Comment;
 import org.generation.italy.main.pojo.Photo;
@@ -31,7 +32,8 @@ public class CommentApiController {
 	@GetMapping("/all/photo/{id}")
 	public List<Comment> getCommentsPerPhoto(@PathVariable("id") int id) {
 		
-		Photo photo = photoService.findById(id).get();
+		Optional<Photo> photoOpt = photoService.findById(id);
+		Photo photo = photoOpt.get();
 		List<Comment> comments = photo.getComments();
 		
 		Collections.reverse(comments);
@@ -44,7 +46,8 @@ public class CommentApiController {
 			@PathVariable("id") int id) {
 		
 		
-		Photo photo = photoService.findById(id).get();
+		Optional<Photo> photoOpt = photoService.findById(id);
+		Photo photo = photoOpt.get();
 		
 		Comment newComment = new Comment(comment.getText(), photo);
 		

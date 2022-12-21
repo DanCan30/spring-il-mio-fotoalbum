@@ -143,8 +143,10 @@ export default {
                     margin: auto;
                     height: 8%;
                     display: flex;
-
+                    padding-bottom: 1rem;
+                    
                     input {
+                        position: relative;
                         width: 90%;
                         height: 100%;
                         font-size: 1.5rem;
@@ -152,7 +154,9 @@ export default {
                         outline: none;
                         border: none;
                         padding-left: .25rem;
+                        border-bottom: 3px solid rgba(#fff, .7);
                     }
+
 
                     button {
                         background-color: transparent;

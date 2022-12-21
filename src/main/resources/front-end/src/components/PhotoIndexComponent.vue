@@ -1,8 +1,6 @@
 <template>
     <main>
 
-        <a href="http://localhost:8080/" target="_blank">Go to admin page</a>
-
         <div class="search-container">
 
             <label for="query">Search</label>
@@ -134,6 +132,7 @@ main {
         div.photo-container {
             width: 30%;
             border: 1px solid grey;
+            transition: .3s;
             
 
             &:hover {

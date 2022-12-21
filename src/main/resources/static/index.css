@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Nunito:wght@200;400;500;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: whitesmoke;
+    font-family: Nunito, sans-serif;
+}
+
+body {
+    background-color: #111;
+}
+
+h2 {
+    text-align: center;
+    font-size: 4rem;
+    margin-block: 3rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+div.navigation-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
+    gap: 3rem;
+}
+div.navigation-button a {
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.75rem;
+}
+
+form input[type="text"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid whitesmoke;
+    font-size: 1.75rem;
+}
+form input[type="submit"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.75rem;
+    transition: .3s;
+}
+form input[type="submit"]:hover {
+    color: rgb(99, 164, 255);
+}
+div.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+ul {
+    width: 40%;
+    list-style: none;
+    font-size: 2.5rem;
+}
+
+li {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+}
+
+li a {
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.show-link:hover {
+    color: rgb(99, 255, 128);
+}
+.edit-link:hover {
+    color: rgb(99, 164, 255);
+}
+.delete-link:hover {
+    color: rgb(255, 99, 99);
+}

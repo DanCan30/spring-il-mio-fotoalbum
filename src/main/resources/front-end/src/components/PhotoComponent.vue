@@ -47,6 +47,7 @@ export default {
     h3 {
       text-transform: uppercase;
       text-align: center;
+      padding-block: 1rem;
     }
     div.img-container {
       width: 90%;
