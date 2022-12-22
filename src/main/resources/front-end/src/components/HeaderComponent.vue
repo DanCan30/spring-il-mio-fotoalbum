@@ -32,6 +32,7 @@ export default {
             font-family: 'Josefin Sans', sans-serif;
             pointer-events: none;
             user-select: none;
+            color: rgb(255, 217, 112);
         }
 
         div.admin-link {
@@ -56,6 +57,7 @@ export default {
 
             &:hover::before {
               width: 100%;
+              background-color: rgb(255, 217, 112);
             }
 
           }

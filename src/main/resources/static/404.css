@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Nunito:wght@200;400;500;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: whitesmoke;
+    font-family: Nunito, sans-serif;
+}
+
+body {
+    background-color: #111;
+}
+
+h2 {
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 4rem;
+    margin-block: 3rem;
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(255, 217, 112);
+}
+
+h4 {
+    text-align: center;
+    font-size: 5rem;
+}
+
+
+.back-button {
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+a {
+    text-decoration: none;
+    transition: .3s;
+}
+
+a:hover {
+    color: rgb(255, 217, 112);
+}

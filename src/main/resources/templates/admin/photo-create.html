@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Photoalbum</title>
+	<link rel="stylesheet" href="form.css">
 </head>
 <body th:object="${photo}">
 	<h2>Create a new photo</h2>
-	<a href="/">Go back to index</a>
-	
-	
+
 	<div th:insert="fragments :: error()"></div>
 	
-	<div th:insert="fragments :: photo-form('/create', 'POST', 'CREATE')"
+	<div th:insert="fragments :: photo-form('/create', 'POST', 'CREATE')"></div>
+
+    <div class= back-button>
+        <a href="/">Go back to index</a>
+    </div>
 </body>
 </html>

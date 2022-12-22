@@ -2,12 +2,12 @@
   <section class="wrapper" @click.self="$emit('hidePage', null)">
     <div class="photo">
         <div class="left-side">
-            <img :src="photo.imageUrl" :alt="photo.title + ' photo'">
-        </div>
-        <div class="right-side">
             <h2>
                 {{ photo.title }}
             </h2>
+            <img :src="photo.imageUrl" :alt="photo.title + ' photo'">
+        </div>
+        <div class="right-side">
 
             <section class="comment-section">
                 <h4>Comments</h4>
@@ -95,12 +95,24 @@ export default {
             background-color: #111;
             width: 80%;
             display: flex;
-            height: 50%;
+            height: 65%;
 
             .left-side {
                 width: 75%;
                 height: 100%;
-
+                position: relative;
+                
+                h2 {
+                    padding-left: 2rem;
+                    font-size: 3rem;
+                    text-transform: uppercase;
+                    padding-top: 1rem;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    background-color: rgba(#000, .3);
+                }
                 img {
                     width: 100%;
                     height: 100%;
@@ -113,34 +125,34 @@ export default {
                 height: 100%;
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
 
-                h2 {
-                    text-align: center;
-                    font-size: 3rem;
-                    text-transform: uppercase;
-                    height: 12%;
-                    padding-top: 1rem;
+                h4 {
+                    font-size: 1.5rem;
+                    padding-block: 2rem;
                 }
 
+
                 section.comment-section {
-                    height: 80%;
-                    padding-left: 1rem;
+                    padding: 1rem;
                     overflow-y: auto;
+                    height: 80%;
 
                     ul {
                         padding-left: 1rem;
                         list-style: none;
 
                         li {
-                            border-bottom: 1px solid rgba(#fff, .2);
+                            border-bottom: 1px solid rgb(255, 217, 112);
                             width: 80%;
+                            font-size: 1.25rem;
                         }
                     }
                 }
 
                 div.comment-input-container {
                     width: 90%;
-                    margin: auto;
+                    margin: 0 auto;
                     height: 8%;
                     display: flex;
                     padding-bottom: 1rem;

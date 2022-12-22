@@ -20,39 +20,32 @@ h2 {
     color: rgb(255, 217, 112);
 }
 
-div.navigation-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-block: 2rem;
-    gap: 3rem;
-}
-div.navigation-button a {
-    text-decoration: none;
-    font-size: 2rem;
-    transition: .3s;
-}
-
-div.navigation-button a:hover {
-    color: rgb(255, 217, 112);
-}
-
 form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     font-size: 1.75rem;
 }
 
-form input[type="text"] {
+form .checkbox-container {
+    display: flex;
+    gap: 2rem;
+}
+
+form input[type="text"],
+textarea {
     background-color: transparent;
     border: none;
     outline: none;
     border-bottom: 2px solid whitesmoke;
     font-size: 1.75rem;
+    margin-bottom: 1.5rem;
 }
-form input[type="submit"] {
+
+form button[type="submit"] {
+    margin-top: 1rem;
     background-color: transparent;
     border: none;
     outline: none;
@@ -60,39 +53,21 @@ form input[type="submit"] {
     font-size: 1.75rem;
     transition: .3s;
 }
-form input[type="submit"]:hover {
+form button[type="submit"]:hover {
     color: rgb(255, 217, 112);
 }
-div.container {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
+
+div.back-button {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
 }
 
-ul {
-    width: 40%;
-    list-style: none;
-    font-size: 2.5rem;
-}
-
-li {
-    display: block;
-    display: flex;
-    justify-content: space-between;
-}
-
-li a {
+div.back-button a {
     text-decoration: none;
-    margin-right: 1rem;
-    transition: .2s;
+    transition: .3s;
 }
 
-.show-link:hover {
-    color: rgb(99, 255, 128);
-}
-.edit-link:hover {
-    color: rgb(99, 164, 255);
-}
-.delete-link:hover {
+div.back-button a:hover {
     color: rgb(255, 99, 99);
 }

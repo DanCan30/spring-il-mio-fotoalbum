@@ -5,26 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Photoalbum</title>
+	<link rel="stylesheet" th:href="@{/show.css}">
 </head>
 <body th:object="${photo}">
 	<h2 th:text="*{title}"></h2>
-	
-	<h5 th:text="|#*{tag}|"></h5>
-	
-	<span 
-		th:each="category : ${categories}"
-		th:object="${category}"
-		th:text="| *{name.toUpperCase()} |"></span>
-		
-	<br>
-	<br>
-	
-	<img th:src="*{imageUrl}">
-	
-	<p th:text="*{description}"></p>
+	<div class="container">
 
-	<a th:href="@{/edit/{id} (id = *{id})}">Edit</a>
-	<a th:href="@{/delete/{id} (id = *{id})}">Delete</a>
-	
+		<h5 th:text="|#*{tag}|"></h5>
+		
+		<div class="category-container">
+
+			<span 
+			th:each="category : ${categories}"
+			th:object="${category}"
+			th:text="| *{name.toUpperCase()} |"></span>
+		</div>
+		<div class="img-container">
+			<img th:src="*{imageUrl}">
+		</div>
+		
+		<p th:text="*{description}"></p>
+		
+		<div class="navigation-buttons">
+			<a th:href="@{/edit/{id} (id = *{id})}" class="edit-link">Edit</a>
+			<a th:href="@{/delete/{id} (id = *{id})}" class="delete-link">Delete</a>
+		</div>
+		
+		<div class= back-button>
+			<a href="/">Back</a>
+		</div>
+
+	</div>
 </body>
 </html>

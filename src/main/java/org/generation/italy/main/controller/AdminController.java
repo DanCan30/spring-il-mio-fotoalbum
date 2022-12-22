@@ -75,7 +75,7 @@ public class AdminController {
 		
 		if(bindingResult.hasErrors()) {
 			redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-			return "redirect:/admin/create";
+			return "redirect:/create";
 		}
 		
 		photoService.save(photo);
@@ -107,7 +107,7 @@ public class AdminController {
 
 		if(bindingResult.hasErrors()) {
 			redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-			return "redirect:/admin/edit/" + photo.getId() ;
+			return "redirect:/edit/" + photo.getId() ;
 		}
 		
 		photoService.save(photo);
