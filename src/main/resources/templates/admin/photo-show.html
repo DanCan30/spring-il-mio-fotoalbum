@@ -12,24 +12,42 @@
 	<div class="container">
 
 		<h5 th:text="|#*{tag}|"></h5>
+
 		
 		<div class="category-container">
-
+			
 			<span 
 			th:each="category : ${categories}"
 			th:object="${category}"
 			th:text="| *{name.toUpperCase()} |"></span>
 		</div>
-		<div class="img-container">
-			<img th:src="*{imageUrl}">
+			
+		
+		<div class="main-element-container">
+			<div class="img-container">
+				<img th:src="*{imageUrl}">
+			</div>
+			<div class="comments-container">
+				<h4>
+					Comments
+				</h4>
+				<ul>
+					<li th:each="comment : ${comments}" th:text="${comment.text}">
+						
+					</li>
+				</ul>
+			</div>
 		</div>
 		
 		<p th:text="*{description}"></p>
 		
+		
+
 		<div class="navigation-buttons">
 			<a th:href="@{/edit/{id} (id = *{id})}" class="edit-link">Edit</a>
 			<a th:href="@{/delete/{id} (id = *{id})}" class="delete-link">Delete</a>
 		</div>
+		
 		
 		<div class= back-button>
 			<a href="/">Back</a>

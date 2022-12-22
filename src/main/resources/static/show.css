@@ -37,8 +37,22 @@ h5 {
     padding-block: 2rem;
 }
 
+.main-element-container {
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    max-height: 50vh;
+    gap: 2rem;
+}
+
+.main-element-container li {
+    display: block;
+    padding-block: .5rem;
+}
+
 .img-container {
-    width: 40%;
+    width: 70%;
     margin: 2rem auto;
 }
 
@@ -46,6 +60,12 @@ h5 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.comments-container {
+    width: 30%;
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 p {

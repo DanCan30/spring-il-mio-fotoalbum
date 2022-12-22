@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.generation.italy.main.pojo.Category;
+import org.generation.italy.main.pojo.Comment;
 import org.generation.italy.main.pojo.Photo;
 import org.generation.italy.main.service.CategoryService;
 import org.generation.italy.main.service.PhotoService;
@@ -50,9 +51,11 @@ public class AdminController {
 		
 		Photo photo = photoOpt.get(); 
 		Set<Category> categories = photo.getCategories();
+		List<Comment> comments = photo.getComments();
 		
 		model.addAttribute("photo", photo);
 		model.addAttribute("categories", categories);
+		model.addAttribute("comments", comments);
 		
 		return "admin/photo-show";
 	}
