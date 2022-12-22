@@ -51,7 +51,7 @@ public class CategoryController {
 
 		if(bindingResult.hasErrors()) {
 			redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-			return "redirect:/admin/categories/create" ;
+			return "redirect:/categories/create" ;
 		}
 		
 		categoryService.save(category);
@@ -80,7 +80,7 @@ public class CategoryController {
 		
 		if(bindingResult.hasErrors()) {
 			redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-			return "redirect:/admin/categories/edit/" + category.getId() ;
+			return "redirect:/categories/edit/" + category.getId() ;
 		}
 		
 		categoryService.save(category);

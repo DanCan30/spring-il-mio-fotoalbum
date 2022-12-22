@@ -57,19 +57,18 @@
 		<button type="submit" th:text="${submitType}"></button>
 	</form>
 	
-	<div
+	<div class="error-section"
 		th:fragment="error()"
 		>
 		     <h3 th:if="${errors}">Errors: </h3>
-    
-    <ul>
-		<li
-    		th:each="error : ${errors}"
-    		th:object="${error}"
-    		th:text="|*{defaultMessage}|"
-    	>
-    	</li>
-	</ul>
+		<ul>
+			<li
+				th:each="error : ${errors}"
+				th:object="${error}"
+				th:text="|*{defaultMessage}|"
+			>
+			</li>
+		</ul>
 	</div>
 </body>
 </html>
