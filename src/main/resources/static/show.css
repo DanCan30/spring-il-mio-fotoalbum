@@ -46,11 +46,6 @@ h5 {
     gap: 2rem;
 }
 
-.main-element-container li {
-    display: block;
-    padding-block: .5rem;
-}
-
 .img-container {
     width: 70%;
     margin: 2rem auto;
@@ -64,8 +59,15 @@ h5 {
 
 .comments-container {
     width: 30%;
+}
+.comments-container ul {
     max-height: 100%;
     overflow-y: auto;
+}
+
+.comments-container li {
+    display: block;
+    padding-block: .5rem;
 }
 
 p {
