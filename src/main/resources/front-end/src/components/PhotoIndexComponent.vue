@@ -93,7 +93,7 @@ export default {
 }
 
 main {
-    margin-block: 10rem;
+    margin-block: 12rem;
 
     div.search-container {
         max-width: 80%;
